@@ -1,0 +1,158 @@
+@import "variables";
+@import "breakpoints";
+@import "resets";
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 0.1px);
+  font-family: $font-main, sans-serif;
+  background-color: $neutral-blue-main;
+  color: white;
+
+  .background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $neutral-blue-card;
+      width: 87.5%;
+      min-height: 530px;
+      max-width: 310px;
+      padding: 1.375em 1.5em 0.5em;
+      border-radius: 15px;
+      box-shadow: 0px 12px 20px 20px rgba(0, 0, 0, 0.15);
+
+      .nft-img-wrapper {
+        position: relative;
+        width: 100%;
+        min-height: 15rem;
+
+        &:hover:before {
+          content: "";
+          display: block;
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.5);
+          width: 100%;
+          height: 98.5%;
+          border-radius: 15px;
+          cursor: pointer;
+        }
+
+        .nft-equilibrium-img {
+          width: 100%;
+          height: 100%;
+          border-radius: 15px;
+        }
+
+        .nft-view-svg {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &:hover .nft-view-svg {
+          display: block;
+          cursor: pointer;
+        }
+      }
+
+      .nft-info-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-grow: 0.4;
+        color: $primary-cyan;
+
+        .nft-name-number {
+          font-size: 1.375rem;
+
+          @include desktop {
+            &:hover {
+              color: $primary-blue;
+              cursor: pointer;
+            }
+          }
+        }
+        .nft-description {
+          font-size: 0.9rem;
+          line-height: 1.5rem;
+          letter-spacing: 0.5px;
+          color: $primary-blue;
+          font-weight: 300;
+        }
+
+        .nft-eth-days-container {
+          display: flex;
+          justify-content: space-between;
+
+          & div img {
+            padding-right: 0.5em;
+          }
+
+          .nft-eth-value {
+            display: flex;
+            width: 50%;
+            letter-spacing: 1px;
+            align-self: flex-start;
+          }
+
+          .nft-days-left {
+            display: flex;
+            width: 50%;
+            justify-self: flex-end;
+            justify-content: flex-end;
+            align-items: flex-end;
+            color: $primary-blue;
+            font-weight: 300;
+            text-align: right;
+          }
+        }
+      }
+
+      .nft-author {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-top: 1px solid $neutral-blue-line;
+        padding: 1em 0;
+
+        p {
+          padding-left: 1em;
+          color: $primary-blue;
+          font-size: 0.9rem;
+
+          span {
+            font-weight: 400;
+            color: $primary-cyan;
+
+            @include desktop {
+              &:hover {
+                color: $primary-blue;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        img {
+          border: 1px solid white;
+          border-radius: 50%;
+          height: 2rem;
+        }
+      }
+    }
+  }
+}
